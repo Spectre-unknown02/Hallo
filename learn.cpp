@@ -370,6 +370,7 @@ int main()
 
 //Calculate discounted Bill Amount ----------------------
 
+/*
 #include<iostream>
 using namespace std;
 
@@ -395,9 +396,142 @@ int main()
     }
 
 }
+*/
+
+// Short circuit problem ( || - or operation) better than && operation in certain cases -
+//reduces search time and complexity that is reduced by checking only left side(only if true), if turned out to be 
+//turned out to be false 
+
+/*
+#include<iostream>
+using namespace std;
+
+int main() {
+    int a=10, b= 5, i = 5;
+    if (a>b || ++i <=0){
+
+    }
+    cout<<i<<endl;
+    return 0;
+}
+*/
+
+//Dynamic declaration in C++ refers to the ability to declare variables at any point in the code, not just at the beginning of a block
+/*int main() {
+    int a = 10, b = 5;
+    if (int c = a + b; c > 10) {
+        cout << "Value of C is " << c << endl;
+    }
+}
+*/
+
+// we can limit the accesibility of the data by making multiple dummy blocks ---------------------------
+
+/*
+#include<stdio.h>
+using namespace std;
+
+int main(){
+    int a=10,b=5;
+    { int c = a + b;
+    cout<<c;
+    }
+
+    { 
+    }
+    //cout<<c;   // would not recognise the variable c here because (check the topic)
+    
+}
+*/
 
 
+//Switch Case---------------------------------------------------------------------------
+/*
+#include<iostream>
+using namespace std;
+
+int main() {
+    int day;
+    cout<<"Enter the day no.";
+    cin>>day;
+    switch(day){
+        case 1: cout<<"Mon";
+               break;
+
+        case 2: cout<<"Tues";
+               break;
+
+        case 3: cout<<"Thur";
+               break;
+
+        case 4: cout<<"Fri";
+               break;
+
+        case 5: cout<<"Sat";
+               break;
+
+        case 6: cout<<"Sun";
+               break;
+
+        case 7: cout<<"Wed";
+               break;
+
+        default: cout<<"invalid date";
+    }
+}
+
+*/
 
 
+//practise some switch 
+/*#include<iostream>
+using namespace std;
+
+int main(){
+    int option;
+    cout<<"input for option varies as 1.Add, 2.subtract, 3.multiply, 4.division";
+    cin>>option;
+    int a,b,c;
+    cout<<"input for a,b";
+    cin>>a>>b;
+
+    switch(option) {
+        case 1: c = a+b;
+        break;
+        case 2: c = a-b;
+        break;
+        case 3: c = a*b;
+        break;
+        case 4: c = a/b;
+        break;
+        default: cout<<"invalid input";
+    }
+    cout<<c;
 
 
+}
+*/
+
+
+//Write a program to offer discount on total bill amount
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    float bill;
+    int b;
+    cout<<"input amount of bill";
+    cin>>bill;
+    if(bill < 100){
+        cout<<bill;
+    }
+    else if(bill>=100 && bill<=500){
+        b = bill - bill*(10/100);
+        cout<<b;
+    }
+    else{
+        b = bill - bill*(20/100);
+        cout<<b;
+    }
+}
